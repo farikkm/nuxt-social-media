@@ -16,7 +16,7 @@ const props = defineProps({
 const route = useRoute()
 const { defaultTransition } = useTailwindConfig()
 
-const textClasses = computed(() => props.href === route.path ? 'font-bold' : 'font-semibold')
+const textClasses = computed(() => props.href === route.path ? 'font-bold' : 'font-normal')
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const textClasses = computed(() => props.href === route.path ? 'font-bold' : 'fo
       <slot></slot>
     </div>
 
-    <div class="ml-3 font-bold text-xl" :class="textClasses">
+    <div class="hidden xl:block ml-3 font-bold text-xl" :class="textClasses">
       <span>{{ props.name }}</span>
     </div>
   </NuxtLink>
